@@ -1,5 +1,6 @@
 package com.example.firebase_realtime_app_midmorning
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -22,7 +23,7 @@ class RegisterActivity : AppCompatActivity() {
         edt_fullname = findViewById(R.id.edit_fullname_reg)
         edt_email_reg = findViewById(R.id.edit_email_reg)
         edt_password_reg = findViewById(R.id.edit_password_reg)
-        createacc_btn = findViewById(R.id.create_acc_btn)
+        createacc_btn = findViewById(R.id.regbtn_reg)
 
         //initialise firebase again
         auth = FirebaseAuth.getInstance()
@@ -40,6 +41,9 @@ class RegisterActivity : AppCompatActivity() {
                 auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this){
                 if (it.isSuccessful){
                     Toast.makeText(this, "User Created Successfully", Toast.LENGTH_SHORT).show()
+                    var gotologin = Intent(this, LoginActivity::class.java)
+                    startActivity(gotologin)
+                    finish()
                 }else {
                     Toast.makeText(this, "Failed to Create Account", Toast.LENGTH_SHORT).show()
                 }

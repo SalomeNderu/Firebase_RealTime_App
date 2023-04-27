@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edit_email_reg" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/regbtn_reg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="41dp"
