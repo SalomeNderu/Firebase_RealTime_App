@@ -40,7 +40,21 @@ class MainActivity : AppCompatActivity() {
             if (carmake.isEmpty() || carmodel.isEmpty() || carprice.isEmpty()) {
                 Toast.makeText(this, "Cannot Submit When One Of The Fields Is Missing", Toast.LENGTH_SHORT).show()
             }else {
-                //saving inf to firebase db
+                //saving info to firebase
+                var usercar = Car(carmake,carmodel,carmodel)
+                var ref = FirebaseDatabase.getInstance().getReference().child("cars")
+                ref.setValue(usercar).addOnCompleteListener{
+
+                    if (it.isSuccessful){
+                        Toast.makeText(this,"Car Data Uploaded Successfully",
+                            Toast.LENGTH_LONG).show()
+                    }else{
+                        Toast.makeText(this,"Failed to Save Car Info",
+                            Toast.LENGTH_LONG).show()
+                    }
+
+                }
+
             }
 
 
