@@ -10,4 +10,5 @@ class Car {
         this.car_model = car_model
         this.car_price = car_price
     }
+    constructor()
 }
